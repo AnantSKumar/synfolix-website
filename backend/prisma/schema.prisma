@@ -1,0 +1,69 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum ProductStatus {
+  draft
+  published
+}
+
+model Product {
+  id          Int           @id @default(autoincrement())
+  slug        String        @unique
+  name        String
+  industry    String
+  tagline     String
+  description String
+  keyFeatures Json          @map("key_features")
+  screenshots Json
+  status      ProductStatus @default(draft)
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+
+  @@map("products")
+}
+
+model Industry {
+  id           Int      @id @default(autoincrement())
+  slug         String   @unique
+  name         String
+  description  String
+  icon         String
+  displayOrder Int      @default(0) @map("display_order")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("industries")
+}
+
+model Lead {
+  id                 Int      @id @default(autoincrement())
+  name               String
+  company             String?
+  email              String
+  phone              String?
+  industry           String?
+  projectDescription String?  @map("project_description")
+  budget             String?
+  timeline           String?
+  message            String?
+  createdAt          DateTime @default(now()) @map("created_at")
+
+  @@map("leads")
+}
+
+model AdminUser {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  role         String    @default("admin")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  lastLoginAt  DateTime? @map("last_login_at")
+
+  @@map("admin_users")
+}
