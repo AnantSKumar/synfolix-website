@@ -50,4 +50,24 @@ describe("POST /api/leads", () => {
 
     expect(res.status).toBe(400);
   });
+
+  it("rate-limits after 10 submissions in the window", async () => {
+    const validLead = {
+      name: "Jane Founder",
+      company: "Acme Startup",
+      email: "jane@acme.test",
+      phone: "555-0100",
+      industry: "startups",
+      projectDescription: "An MVP for scheduling",
+      timeline: "3 months",
+      message: "Let's talk",
+    };
+
+    let lastRes;
+    for (let i = 0; i < 11; i++) {
+      lastRes = await request(app).post("/api/leads").send(validLead);
+    }
+
+    expect(lastRes.status).toBe(429);
+  });
 });
