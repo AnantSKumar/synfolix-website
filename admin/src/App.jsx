@@ -1,7 +1,24 @@
+import { Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/Login";
+import RequireAuth from "./components/RequireAuth";
+
+function ProductsPlaceholder() {
+  return <div className="p-8">Products page coming in the next task.</div>;
+}
+
 export default function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-slate-50">
-      <h1 className="text-2xl font-semibold text-slate-800">Synfolix Admin</h1>
-    </div>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route
+        path="/products"
+        element={
+          <RequireAuth>
+            <ProductsPlaceholder />
+          </RequireAuth>
+        }
+      />
+      <Route path="*" element={<Navigate to="/products" replace />} />
+    </Routes>
   );
 }
