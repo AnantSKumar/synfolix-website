@@ -3,6 +3,8 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import WhatIsSynfolix from "./components/WhatIsSynfolix";
 import OurProducts from "./components/OurProducts";
+import BuildWithSynfolix from "./components/BuildWithSynfolix";
+import Industries from "./components/Industries";
 
 export default function App() {
   return (
@@ -12,6 +14,8 @@ export default function App() {
         <Hero />
         <WhatIsSynfolix />
         <OurProducts />
+        <BuildWithSynfolix />
+        <Industries />
       </main>
       <Footer />
     </div>
