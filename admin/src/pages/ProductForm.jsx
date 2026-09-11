@@ -19,6 +19,7 @@ export default function ProductForm() {
   const navigate = useNavigate();
   const [product, setProduct] = useState(emptyProduct);
   const [featuresText, setFeaturesText] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (isEditing) {
@@ -46,24 +47,29 @@ export default function ProductForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setError("");
     const payload = {
       ...product,
       keyFeatures: featuresText.split("\n").map((f) => f.trim()).filter(Boolean),
     };
 
-    if (isEditing) {
-      await apiFetch(`/admin/products/${id}`, {
-        method: "PUT",
-        body: JSON.stringify(payload),
-      });
-    } else {
-      await apiFetch("/admin/products", {
-        method: "POST",
-        body: JSON.stringify(payload),
-      });
-    }
+    try {
+      if (isEditing) {
+        await apiFetch(`/admin/products/${id}`, {
+          method: "PUT",
+          body: JSON.stringify(payload),
+        });
+      } else {
+        await apiFetch("/admin/products", {
+          method: "POST",
+          body: JSON.stringify(payload),
+        });
+      }
 
-    navigate("/products");
+      navigate("/products");
+    } catch (err) {
+      setError(err.message || "Something went wrong. Please try again.");
+    }
   }
 
   return (
@@ -71,6 +77,7 @@ export default function ProductForm() {
       <h1 className="text-2xl font-semibold text-slate-800 mb-6">
         {isEditing ? "Edit Product" : "New Product"}
       </h1>
+      {error && <p className="text-sm text-red-600 mb-4">{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">Name</label>

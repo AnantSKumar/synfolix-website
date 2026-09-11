@@ -10,6 +10,7 @@ export default function IndustryForm() {
   const isEditing = Boolean(id);
   const navigate = useNavigate();
   const [industry, setIndustry] = useState(emptyIndustry);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (isEditing) {
@@ -34,15 +35,20 @@ export default function IndustryForm() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setError("");
     const payload = { ...industry, displayOrder: Number(industry.displayOrder) };
 
-    if (isEditing) {
-      await apiFetch(`/admin/industries/${id}`, { method: "PUT", body: JSON.stringify(payload) });
-    } else {
-      await apiFetch("/admin/industries", { method: "POST", body: JSON.stringify(payload) });
-    }
+    try {
+      if (isEditing) {
+        await apiFetch(`/admin/industries/${id}`, { method: "PUT", body: JSON.stringify(payload) });
+      } else {
+        await apiFetch("/admin/industries", { method: "POST", body: JSON.stringify(payload) });
+      }
 
-    navigate("/industries");
+      navigate("/industries");
+    } catch (err) {
+      setError(err.message || "Something went wrong. Please try again.");
+    }
   }
 
   return (
@@ -52,6 +58,7 @@ export default function IndustryForm() {
         <h1 className="text-2xl font-semibold text-slate-800 mb-6">
           {isEditing ? "Edit Industry" : "New Industry"}
         </h1>
+        {error && <p className="text-sm text-red-600 mb-4">{error}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">Name</label>
