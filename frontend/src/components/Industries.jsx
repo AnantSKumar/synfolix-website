@@ -1,5 +1,14 @@
 import { useEffect, useState } from "react";
+import { HeartPulse, Scale, GraduationCap, Users, Building2 } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import { apiFetch } from "../lib/apiClient";
+
+const ICONS = {
+  healthcare: HeartPulse,
+  legal: Scale,
+  education: GraduationCap,
+  crm: Users,
+};
 
 export default function Industries() {
   const [industries, setIndustries] = useState([]);
@@ -9,19 +18,25 @@ export default function Industries() {
   }, []);
 
   return (
-    <section id="industries" className="bg-slate-50 py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Industries</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {industries.map((industry) => (
-            <div
-              key={industry.slug}
-              className="bg-white border border-slate-200 rounded-2xl p-6 text-center hover:shadow-md transition-shadow"
-            >
-              <h3 className="font-semibold text-slate-900">{industry.name}</h3>
-              <p className="text-sm text-slate-500 mt-2">{industry.description}</p>
-            </div>
-          ))}
+    <section id="industries" className="bg-secondary/50 py-20">
+      <div className="mx-auto max-w-6xl px-6">
+        <h2 className="mb-12 text-center text-3xl font-bold text-foreground">Industries</h2>
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+          {industries.map((industry) => {
+            const Icon = ICONS[industry.slug] || Building2;
+            return (
+              <Card
+                key={industry.slug}
+                className="items-center p-6 text-center shadow-none transition-shadow hover:shadow-md"
+              >
+                <div className="mx-auto mb-3 flex size-11 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+                  <Icon className="size-5" />
+                </div>
+                <h3 className="font-semibold text-foreground">{industry.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{industry.description}</p>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

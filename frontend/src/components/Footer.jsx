@@ -12,15 +12,15 @@ const groups = [
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300 mt-24">
-      <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-6 gap-8">
+    <footer className="mt-24 border-t border-primary/20 bg-zinc-950 text-zinc-400">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-16 md:grid-cols-6">
         {groups.map((group) => (
           <div key={group.title}>
-            <h4 className="text-white text-sm font-semibold mb-3">{group.title}</h4>
+            <h4 className="mb-3 text-sm font-semibold text-white">{group.title}</h4>
             <ul className="space-y-2 text-sm">
               {group.items.map((item) => (
                 <li key={item}>
-                  <a href="#" className="hover:text-white">
+                  <a href="#" className="transition-colors hover:text-primary">
                     {item}
                   </a>
                 </li>
@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
         ))}
       </div>
-      <div className="border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+      <div className="border-t border-zinc-800 py-6 text-center text-xs text-zinc-500">
         © {new Date().getFullYear()} Synfolix Pvt Ltd. All rights reserved.
       </div>
     </footer>

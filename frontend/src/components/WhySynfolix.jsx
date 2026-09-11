@@ -1,20 +1,25 @@
+import { Lightbulb, Building2, Cpu, Workflow, TrendingUp } from "lucide-react";
+
 const reasons = [
-  { title: "Product Thinking", body: "We think beyond simply writing code." },
-  { title: "Built Around Your Business", body: "Solutions designed around actual business requirements." },
-  { title: "Modern Technology", body: "AI, cloud, automation and scalable architecture." },
-  { title: "End-to-End Development", body: "From idea and design through development and launch." },
-  { title: "Built to Scale", body: "Products designed for future growth." },
+  { icon: Lightbulb, title: "Product Thinking", body: "We think beyond simply writing code." },
+  { icon: Building2, title: "Built Around Your Business", body: "Solutions designed around actual business requirements." },
+  { icon: Cpu, title: "Modern Technology", body: "AI, cloud, automation and scalable architecture." },
+  { icon: Workflow, title: "End-to-End Development", body: "From idea and design through development and launch." },
+  { icon: TrendingUp, title: "Built to Scale", body: "Products designed for future growth." },
 ];
 
 export default function WhySynfolix() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-20">
-      <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Why Synfolix?</h2>
-      <div className="grid md:grid-cols-5 gap-6">
-        {reasons.map((reason) => (
-          <div key={reason.title} className="text-center">
-            <h3 className="font-semibold text-slate-900 mb-2">{reason.title}</h3>
-            <p className="text-sm text-slate-500">{reason.body}</p>
+    <section className="mx-auto max-w-6xl px-6 py-20">
+      <h2 className="mb-12 text-center text-3xl font-bold text-foreground">Why Synfolix?</h2>
+      <div className="grid gap-8 md:grid-cols-5">
+        {reasons.map(({ icon: Icon, title, body }) => (
+          <div key={title} className="text-center">
+            <div className="mx-auto mb-3 flex size-11 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+              <Icon className="size-5" />
+            </div>
+            <h3 className="mb-2 font-semibold text-foreground">{title}</h3>
+            <p className="text-sm text-muted-foreground">{body}</p>
           </div>
         ))}
       </div>

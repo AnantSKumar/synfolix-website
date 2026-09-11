@@ -1,24 +1,33 @@
+import { ArrowRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
 export default function ProductCard({ product }) {
   const screenshot = product.screenshots && product.screenshots[0];
 
   return (
-    <div className="border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="aspect-video bg-slate-100 flex items-center justify-center text-slate-400 text-sm">
+    <Card className="overflow-hidden py-0 shadow-none transition-shadow hover:shadow-md">
+      <div className="flex aspect-video items-center justify-center bg-accent text-sm text-accent-foreground/60">
         {screenshot ? (
-          <img src={screenshot.url} alt={screenshot.alt} className="w-full h-full object-cover" />
+          <img src={screenshot.url} alt={screenshot.alt} className="h-full w-full object-cover" />
         ) : (
           "Screenshot coming soon"
         )}
       </div>
-      <div className="p-6">
-        <span className="text-xs uppercase tracking-wide text-slate-400">{product.industry}</span>
-        <h3 className="text-lg font-semibold text-slate-900 mt-1">{product.name}</h3>
-        <p className="text-sm text-slate-600 mt-2">{product.tagline}</p>
-        <div className="mt-4 flex gap-4 text-sm font-medium">
-          <span className="text-slate-800">Learn more</span>
-          <span className="text-slate-500">Request Demo</span>
+      <CardContent className="py-6">
+        <Badge variant="secondary" className="uppercase tracking-wide">
+          {product.industry}
+        </Badge>
+        <h3 className="mt-2 text-lg font-semibold text-foreground">{product.name}</h3>
+        <p className="mt-2 text-sm text-muted-foreground">{product.tagline}</p>
+        <div className="mt-4 flex items-center gap-4 text-sm font-medium">
+          <span className="flex items-center gap-1 text-primary">
+            Learn more
+            <ArrowRight className="size-3.5" />
+          </span>
+          <span className="text-muted-foreground">Request Demo</span>
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }

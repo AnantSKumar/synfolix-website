@@ -1,25 +1,38 @@
+import { Package, Wrench } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+
+const pillars = [
+  {
+    icon: Package,
+    title: "Our Products",
+    body: "Software products developed and owned by Synfolix — built for real industries, sold and supported directly.",
+  },
+  {
+    icon: Wrench,
+    title: "Custom Software",
+    body: "Digital products and software developed for third-party businesses, startups, and organizations.",
+  },
+];
+
 export default function WhatIsSynfolix() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-20">
-      <p className="text-center text-lg text-slate-700 max-w-3xl mx-auto mb-12">
+    <section className="mx-auto max-w-6xl px-6 py-20">
+      <p className="mx-auto mb-12 max-w-3xl text-center text-lg text-foreground">
         Synfolix is a software and technology company building digital products for modern
         businesses.
       </p>
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="border border-slate-200 rounded-2xl p-8">
-          <h3 className="text-xl font-semibold text-slate-900 mb-2">Our Products</h3>
-          <p className="text-slate-600">
-            Software products developed and owned by Synfolix — built for real industries,
-            sold and supported directly.
-          </p>
-        </div>
-        <div className="border border-slate-200 rounded-2xl p-8">
-          <h3 className="text-xl font-semibold text-slate-900 mb-2">Custom Software</h3>
-          <p className="text-slate-600">
-            Digital products and software developed for third-party businesses, startups,
-            and organizations.
-          </p>
-        </div>
+      <div className="grid gap-8 md:grid-cols-2">
+        {pillars.map(({ icon: Icon, title, body }) => (
+          <Card key={title} size="default" className="p-8 shadow-none">
+            <CardHeader className="px-0">
+              <div className="mb-4 flex size-11 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+                <Icon className="size-5" />
+              </div>
+              <CardTitle className="text-xl font-semibold">{title}</CardTitle>
+              <CardDescription className="text-base text-muted-foreground">{body}</CardDescription>
+            </CardHeader>
+          </Card>
+        ))}
       </div>
     </section>
   );
