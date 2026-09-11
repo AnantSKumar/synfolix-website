@@ -5,6 +5,7 @@ import ProductsList from "./pages/ProductsList";
 import ProductForm from "./pages/ProductForm";
 import IndustriesList from "./pages/IndustriesList";
 import IndustryForm from "./pages/IndustryForm";
+import Leads from "./pages/Leads";
 
 export default function App() {
   return (
@@ -55,6 +56,14 @@ export default function App() {
         element={
           <RequireAuth>
             <IndustryForm />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/leads"
+        element={
+          <RequireAuth>
+            <Leads />
           </RequireAuth>
         }
       />
