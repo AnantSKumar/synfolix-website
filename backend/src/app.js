@@ -16,6 +16,9 @@ app.use("/api/leads", leadsRouter);
 const adminAuthRouter = require("./routes/admin/auth");
 app.use("/api/admin", adminAuthRouter);
 
+const adminProductsRouter = require("./routes/admin/products");
+app.use("/api/admin/products", adminProductsRouter);
+
 const requireAuth = require("./middleware/requireAuth");
 
 app.get("/api/admin/whoami", requireAuth, (req, res) => {
