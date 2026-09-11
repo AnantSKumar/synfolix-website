@@ -7,6 +7,7 @@ import BuildWithSynfolix from "./components/BuildWithSynfolix";
 import Industries from "./components/Industries";
 import WhySynfolix from "./components/WhySynfolix";
 import Process from "./components/Process";
+import Contact from "./components/Contact";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Industries />
         <WhySynfolix />
         <Process />
+        <Contact />
       </main>
       <Footer />
     </div>
