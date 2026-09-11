@@ -13,6 +13,9 @@ app.use("/api/products", productsRouter);
 const leadsRouter = require("./routes/leads");
 app.use("/api/leads", leadsRouter);
 
+const adminAuthRouter = require("./routes/admin/auth");
+app.use("/api/admin", adminAuthRouter);
+
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
