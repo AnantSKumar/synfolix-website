@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const links = [
   { label: "Home", to: "/" },
   { label: "Products", to: "#products" },
@@ -14,9 +12,9 @@ export default function NavBar() {
   return (
     <header className="border-b border-slate-100 bg-white/90 backdrop-blur sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="text-lg font-bold tracking-tight text-slate-900">
+        <a href="/" className="text-lg font-bold tracking-tight text-slate-900">
           Synfolix
-        </Link>
+        </a>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
           {links.map((link) => (
             <a key={link.label} href={link.to} className="hover:text-slate-900">
