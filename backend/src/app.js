@@ -19,6 +19,9 @@ app.use("/api/admin", adminAuthRouter);
 const adminProductsRouter = require("./routes/admin/products");
 app.use("/api/admin/products", adminProductsRouter);
 
+const adminIndustriesRouter = require("./routes/admin/industries");
+app.use("/api/admin/industries", adminIndustriesRouter);
+
 const requireAuth = require("./middleware/requireAuth");
 
 app.get("/api/admin/whoami", requireAuth, (req, res) => {
