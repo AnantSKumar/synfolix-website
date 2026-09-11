@@ -16,6 +16,12 @@ app.use("/api/leads", leadsRouter);
 const adminAuthRouter = require("./routes/admin/auth");
 app.use("/api/admin", adminAuthRouter);
 
+const requireAuth = require("./middleware/requireAuth");
+
+app.get("/api/admin/whoami", requireAuth, (req, res) => {
+  res.json({ id: req.admin.id, email: req.admin.email });
+});
+
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
