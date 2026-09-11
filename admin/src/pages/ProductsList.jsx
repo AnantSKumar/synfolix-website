@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiFetch } from "../lib/apiClient";
+import NavBar from "../components/NavBar";
 
 export default function ProductsList() {
   const [products, setProducts] = useState([]);
@@ -26,7 +27,9 @@ export default function ProductsList() {
   if (loading) return <div className="p-8">Loading...</div>;
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
+    <>
+      <NavBar />
+      <div className="p-8 max-w-4xl mx-auto">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold text-slate-800">Products</h1>
         <Link
@@ -76,6 +79,7 @@ export default function ProductsList() {
           ))}
         </tbody>
       </table>
-    </div>
+      </div>
+    </>
   );
 }

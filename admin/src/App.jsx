@@ -3,6 +3,8 @@ import Login from "./pages/Login";
 import RequireAuth from "./components/RequireAuth";
 import ProductsList from "./pages/ProductsList";
 import ProductForm from "./pages/ProductForm";
+import IndustriesList from "./pages/IndustriesList";
+import IndustryForm from "./pages/IndustryForm";
 
 export default function App() {
   return (
@@ -29,6 +31,30 @@ export default function App() {
         element={
           <RequireAuth>
             <ProductForm />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/industries"
+        element={
+          <RequireAuth>
+            <IndustriesList />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/industries/new"
+        element={
+          <RequireAuth>
+            <IndustryForm />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/industries/:id/edit"
+        element={
+          <RequireAuth>
+            <IndustryForm />
           </RequireAuth>
         }
       />
