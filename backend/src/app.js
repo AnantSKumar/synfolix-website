@@ -1,7 +1,24 @@
+require("dotenv").config(); // Load env vars early, before creating app
 const express = require("express");
+const helmet = require("helmet");
+const cors = require("cors");
+const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
+const allowedOrigins = [process.env.FRONTEND_ORIGIN, process.env.ADMIN_ORIGIN].filter(Boolean);
+
+app.use(helmet());
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      callback(null, false);
+    },
+  })
+);
 app.use(express.json());
 
 const industriesRouter = require("./routes/industries");
@@ -34,5 +51,7 @@ app.get("/api/admin/whoami", requireAuth, (req, res) => {
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
+
+app.use(errorHandler);  // Centralized error handler for all errors
 
 module.exports = app;
