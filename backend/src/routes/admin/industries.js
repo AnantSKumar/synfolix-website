@@ -30,6 +30,9 @@ router.post("/", async (req, res, next) => {
     const industry = await prisma.industry.create({ data: parsed.data });
     res.status(201).json(industry);
   } catch (err) {
+    if (err.code === "P2002") {
+      return res.status(409).json({ error: "A record with that slug already exists" });
+    }
     next(err);
   }
 });
@@ -53,6 +56,9 @@ router.put("/:id", async (req, res, next) => {
   } catch (err) {
     if (err.code === "P2025") {
       return res.status(404).json({ error: "Industry not found" });
+    }
+    if (err.code === "P2002") {
+      return res.status(409).json({ error: "A record with that slug already exists" });
     }
     next(err);
   }

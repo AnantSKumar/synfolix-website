@@ -4,6 +4,7 @@ const app = require("../src/app");
 const prisma = require("../src/lib/prisma");
 const { resetDb } = require("./testUtils");
 
+// NOTE: signs a token for a fabricated admin id; requireAuth does not verify the admin still exists in the DB (see spec's deferred auth-hardening item)
 function authHeader() {
   const token = jwt.sign({ sub: 1, email: "admin@synfolix.test" }, process.env.JWT_SECRET, {
     expiresIn: "12h",
@@ -31,6 +32,11 @@ describe("Admin industries CRUD", () => {
 
   it("rejects unauthenticated access", async () => {
     const res = await request(app).get("/api/admin/industries");
+    expect(res.status).toBe(401);
+  });
+
+  it("rejects unauthenticated POST access", async () => {
+    const res = await request(app).post("/api/admin/industries").send(validIndustry);
     expect(res.status).toBe(401);
   });
 
