@@ -22,6 +22,12 @@ export async function apiFetch(path, options = {}) {
     } catch (e) {
       // ignore non-JSON error bodies
     }
+
+    if (res.status === 401) {
+      localStorage.removeItem("synfolix_admin_token");
+      window.location.assign("/login");
+    }
+
     const error = new Error(body.error || `Request failed with status ${res.status}`);
     error.status = res.status;
     error.details = body.details;
