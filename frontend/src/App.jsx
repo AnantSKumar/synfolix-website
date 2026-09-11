@@ -5,6 +5,8 @@ import WhatIsSynfolix from "./components/WhatIsSynfolix";
 import OurProducts from "./components/OurProducts";
 import BuildWithSynfolix from "./components/BuildWithSynfolix";
 import Industries from "./components/Industries";
+import WhySynfolix from "./components/WhySynfolix";
+import Process from "./components/Process";
 
 export default function App() {
   return (
@@ -16,6 +18,8 @@ export default function App() {
         <OurProducts />
         <BuildWithSynfolix />
         <Industries />
+        <WhySynfolix />
+        <Process />
       </main>
       <Footer />
     </div>
