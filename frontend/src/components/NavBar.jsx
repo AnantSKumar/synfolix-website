@@ -6,8 +6,8 @@ function LitUpButton({ className = "", children, ...props }) {
       {...props}
       className={`group relative shrink-0 rounded-full p-[2px] transition-transform hover:-translate-y-0.5 ${className}`}
     >
-      <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-[#0a3a38] to-primary" />
-      <span className="relative flex w-full items-center justify-center rounded-full bg-[#0f2a2c] px-6 py-2 text-sm font-semibold text-white transition-colors group-hover:bg-[#0f2a2c]/90">
+      <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-[#12524d] to-primary" />
+      <span className="relative flex w-full items-center justify-center rounded-full bg-[#0f2a2c] px-6 py-2 text-sm font-semibold text-white transition-colors group-hover:bg-[#0f2a2c]/80">
         {children}
       </span>
     </a>
