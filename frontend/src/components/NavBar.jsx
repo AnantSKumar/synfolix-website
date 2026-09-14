@@ -1,5 +1,18 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+
+function LitUpButton({ className = "", children, ...props }) {
+  return (
+    <a
+      {...props}
+      className={`group relative shrink-0 rounded-full p-[2px] transition-transform hover:-translate-y-0.5 ${className}`}
+    >
+      <span className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-primary" />
+      <span className="relative flex w-full items-center justify-center rounded-full bg-[#0f2a2c] px-6 py-2 text-sm font-semibold text-white transition-colors group-hover:bg-[#0f2a2c]/90">
+        {children}
+      </span>
+    </a>
+  );
+}
 
 const links = [
   { label: "Home", to: "/" },
@@ -18,7 +31,7 @@ export default function NavBar() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
         <a href="/" className="flex items-center">
-          <img src="/logo.png" alt="Synfolix" className="h-14 w-auto" />
+          <img src="/logo.png" alt="Synfolix" className="h-20 w-auto" />
         </a>
 
         <nav className="hidden items-center gap-1 text-sm font-medium text-muted-foreground md:flex">
@@ -34,9 +47,9 @@ export default function NavBar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="hidden rounded-full px-4 sm:inline-flex">
-            <a href="#contact">Build with Synfolix</a>
-          </Button>
+          <LitUpButton href="#contact" className="hidden sm:inline-block">
+            Build with Synfolix
+          </LitUpButton>
           <button
             onClick={() => setMenuOpen((open) => !open)}
             className="flex size-9 items-center justify-center rounded-full text-foreground hover:bg-secondary md:hidden"
@@ -68,11 +81,9 @@ export default function NavBar() {
               </a>
             ))}
           </div>
-          <Button asChild size="sm" className="mt-4 w-full rounded-full">
-            <a href="#contact" onClick={() => setMenuOpen(false)}>
-              Build with Synfolix
-            </a>
-          </Button>
+          <LitUpButton href="#contact" onClick={() => setMenuOpen(false)} className="mt-4 block w-full">
+            Build with Synfolix
+          </LitUpButton>
         </nav>
       )}
     </header>
