@@ -14,16 +14,16 @@ const data = steps.map((step) => ({
   content: (
     <div className="flex items-start gap-3">
       <span className="font-mono text-xs text-primary">{step.n}</span>
-      <p className="text-sm text-muted-foreground md:text-base">{step.body}</p>
+      <p className="text-sm text-white/60 md:text-base">{step.body}</p>
     </div>
   ),
 }));
 
 export default function Process() {
   return (
-    <section className="border-b border-border px-6 py-20">
+    <section className="atmosphere-bg border-b border-primary/30 px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-2xl font-semibold text-foreground">Our process</h2>
+        <h2 className="text-2xl font-semibold text-white">Our process</h2>
       </div>
       <Timeline data={data} />
     </section>
