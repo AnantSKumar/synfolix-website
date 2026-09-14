@@ -30,7 +30,7 @@ export default function BuildWithSynfolix() {
             </p>
             <a
               href="#contact"
-              className="group relative mt-8 inline-block rounded-full bg-[#0f2a2c] px-8 py-2.5 text-sm font-semibold text-white shadow-lg shadow-black/10 transition hover:shadow-xl hover:shadow-primary/20"
+              className="group relative mt-8 inline-block rounded-full bg-[#0f2a2c] px-8 py-2.5 text-sm font-semibold text-white shadow-lg shadow-black/10 transition hover:shadow-xl hover:shadow-[#0a3a38]/50"
             >
               <span
                 aria-hidden
