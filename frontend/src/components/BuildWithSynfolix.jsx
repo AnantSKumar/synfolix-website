@@ -50,7 +50,11 @@ export default function BuildWithSynfolix() {
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
               {services.map((service) => (
-                <Badge key={service} variant="outline" className="rounded-full font-normal text-muted-foreground">
+                <Badge
+                  key={service}
+                  variant="outline"
+                  className="rounded-full border-primary/25 bg-primary/8 font-normal text-primary"
+                >
                   {service}
                 </Badge>
               ))}
