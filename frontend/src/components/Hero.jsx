@@ -1,15 +1,15 @@
+import { CloudShader } from "@/components/ui/cloud-shader";
+
 export default function Hero() {
   return (
-    <section className="hero-sky relative overflow-hidden">
-      <div aria-hidden className="pointer-events-none absolute inset-0">
-        <span className="hero-cloud left-[8%] top-[10%] h-72 w-72 bg-primary/70" />
-        <span
-          className="hero-cloud right-[10%] top-[30%] h-96 w-96 bg-[oklch(0.62_0.1_185)]/50"
-          style={{ animationDelay: "-3s", animationDuration: "11s" }}
-        />
-        <span
-          className="hero-cloud bottom-[-10%] left-[30%] h-80 w-80 bg-primary/40"
-          style={{ animationDelay: "-5.5s", animationDuration: "7.5s" }}
+    <section className="relative overflow-hidden bg-[#0f2a2c]">
+      <div className="absolute inset-0">
+        <CloudShader
+          className="h-full"
+          count={6}
+          cloudColor="#f4f7f6"
+          skyTopColor="#0f2a2c"
+          skyBottomColor="#1a6e68"
         />
       </div>
 

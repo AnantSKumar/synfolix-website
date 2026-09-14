@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 const journey = ["Idea", "Strategy", "Design", "Development", "Testing", "Launch", "Scale"];
@@ -11,8 +10,12 @@ const services = [
 
 export default function BuildWithSynfolix() {
   return (
-    <section className="border-b border-border px-6 py-20">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative overflow-hidden border-b border-border px-6 py-20">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
+      />
+      <div className="relative mx-auto max-w-6xl">
         <div className="flex justify-start pr-16">
           <span className="h-px w-12 bg-primary" />
         </div>
@@ -25,9 +28,16 @@ export default function BuildWithSynfolix() {
               Synfolix designs, builds, and scales software for businesses, startups, and
               entrepreneurs.
             </p>
-            <Button asChild size="lg" className="mt-8 rounded-full px-6">
-              <a href="#contact">Tell us what you&rsquo;re building</a>
-            </Button>
+            <a
+              href="#contact"
+              className="group relative mt-8 inline-block rounded-full bg-[#0f2a2c] px-8 py-2.5 text-sm font-semibold text-white shadow-lg shadow-black/10 transition hover:shadow-xl hover:shadow-primary/20"
+            >
+              <span
+                aria-hidden
+                className="absolute inset-x-0 -top-px mx-auto h-px w-1/2 bg-gradient-to-r from-transparent via-primary to-transparent"
+              />
+              Tell us what you&rsquo;re building
+            </a>
           </div>
           <div>
             <div className="flex flex-wrap items-center gap-x-1.5 gap-y-2 text-sm font-medium text-foreground">
