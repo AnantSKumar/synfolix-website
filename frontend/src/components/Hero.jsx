@@ -5,11 +5,11 @@ export default function Hero() {
         <span className="hero-cloud left-[8%] top-[10%] h-72 w-72 bg-primary/70" />
         <span
           className="hero-cloud right-[10%] top-[30%] h-96 w-96 bg-[oklch(0.62_0.1_185)]/50"
-          style={{ animationDelay: "-8s", animationDuration: "32s" }}
+          style={{ animationDelay: "-3s", animationDuration: "11s" }}
         />
         <span
           className="hero-cloud bottom-[-10%] left-[30%] h-80 w-80 bg-primary/40"
-          style={{ animationDelay: "-15s", animationDuration: "24s" }}
+          style={{ animationDelay: "-5.5s", animationDuration: "7.5s" }}
         />
       </div>
 
@@ -18,7 +18,7 @@ export default function Hero() {
           The sky&rsquo;s the limit at Synfolix
         </span>
         <h1
-          className="reveal mt-6 text-[2.75rem] font-semibold leading-[1.06] tracking-tight text-white md:text-7xl"
+          className="hero-gradient-text mt-6 text-[2.75rem] font-semibold leading-[1.06] tracking-tight md:text-7xl"
           style={{ animationDelay: "80ms" }}
         >
           We build digital products that solve real business problems.
