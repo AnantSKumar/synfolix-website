@@ -1,0 +1,12 @@
+# Claude Code / agent tooling — local session state, not part of the app
+.claude/
+.superpowers/
+
+# Reference-only template pulled in for design inspiration, not part of the app
+magic-portfolio/
+
+# Environment files — local config and/or secrets, never committed
+.env
+.env.local
+.env.*.local
+.env.example
