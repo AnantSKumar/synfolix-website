@@ -25,7 +25,7 @@ export default function OurProducts() {
         {!loading && products.length === 0 && (
           <p className="mt-10 text-sm text-muted-foreground">More products coming soon.</p>
         )}
-        <div className="mt-10 grid gap-px overflow-hidden bg-border md:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
           {products.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}

@@ -28,7 +28,7 @@ export default function NavBar() {
             </a>
           ))}
         </nav>
-        <Button asChild size="sm" className="rounded-sm px-4">
+        <Button asChild size="sm" className="rounded-full px-4">
           <a href="#contact">Build with Synfolix</a>
         </Button>
       </div>

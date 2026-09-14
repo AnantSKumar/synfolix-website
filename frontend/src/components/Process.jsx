@@ -15,7 +15,7 @@ export default function Process() {
         <div className="mt-10 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {steps.map((step) => (
             <div key={step.n} className="border-t-2 border-primary pt-4">
-              <span className="text-xs font-medium text-primary">{step.n}</span>
+              <span className="font-mono text-xs text-primary">{step.n}</span>
               <h3 className="mt-2 font-medium text-white">{step.title}</h3>
               <p className="mt-1.5 text-sm text-white/50">{step.body}</p>
             </div>

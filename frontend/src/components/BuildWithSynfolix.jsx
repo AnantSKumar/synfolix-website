@@ -13,7 +13,10 @@ export default function BuildWithSynfolix() {
   return (
     <section className="border-b border-border px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-10 md:grid-cols-[1fr_1.4fr]">
+        <div className="flex justify-start pr-16">
+          <span className="h-px w-12 bg-primary" />
+        </div>
+        <div className="mt-8 grid gap-10 md:grid-cols-[1fr_1.4fr]">
           <div>
             <h2 className="text-2xl font-semibold text-foreground">
               Have an idea? We&rsquo;ll build it with you.
@@ -22,7 +25,7 @@ export default function BuildWithSynfolix() {
               Synfolix designs, builds, and scales software for businesses, startups, and
               entrepreneurs.
             </p>
-            <Button asChild size="lg" className="mt-8 rounded-sm px-6">
+            <Button asChild size="lg" className="mt-8 rounded-full px-6">
               <a href="#contact">Tell us what you&rsquo;re building</a>
             </Button>
           </div>
@@ -37,12 +40,15 @@ export default function BuildWithSynfolix() {
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
               {services.map((service) => (
-                <Badge key={service} variant="outline" className="rounded-sm font-normal text-muted-foreground">
+                <Badge key={service} variant="outline" className="rounded-full font-normal text-muted-foreground">
                   {service}
                 </Badge>
               ))}
             </div>
           </div>
+        </div>
+        <div className="mt-14 flex justify-end pl-16">
+          <span className="h-px w-12 bg-primary" />
         </div>
       </div>
     </section>

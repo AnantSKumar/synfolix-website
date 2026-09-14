@@ -34,9 +34,9 @@ export default function IndustriesList() {
           <h1 className="text-2xl font-semibold text-slate-800">Industries</h1>
           <Link
             to="/industries/new"
-            className="bg-slate-800 text-white rounded px-4 py-2 text-sm font-medium hover:bg-slate-700"
+            className="bg-teal-700 text-white rounded-full px-4 py-2 text-sm font-medium hover:bg-teal-800"
           >
-            New Industry
+            New industry
           </Link>
         </div>
         <table className="w-full text-sm text-left border-collapse">
@@ -52,16 +52,16 @@ export default function IndustriesList() {
               <tr key={ind.id} className="border-b">
                 <td className="py-2">{ind.name}</td>
                 <td className="py-2">{ind.displayOrder}</td>
-                <td className="py-2 space-x-3">
+                <td className="py-2 space-x-2 text-right">
                   <Link
                     to={`/industries/${ind.id}/edit`}
-                    className="text-blue-600 hover:underline"
+                    className="inline-block rounded-full border border-slate-300 px-3 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50"
                   >
                     Edit
                   </Link>
                   <button
                     onClick={() => handleDelete(ind.id)}
-                    className="text-red-600 hover:underline"
+                    className="rounded-full bg-red-600 px-3 py-1 text-xs font-medium text-white hover:bg-red-700"
                   >
                     Delete
                   </button>

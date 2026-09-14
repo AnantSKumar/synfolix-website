@@ -1,47 +1,41 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function Hero() {
   return (
-    <section className="border-b border-border px-6 pb-20 pt-16 md:pt-20">
-      <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1fr_18rem]">
-        <div className="pt-6">
-          <p className="mb-6 text-sm font-medium text-primary">Synfolix / Technology &amp; Product</p>
-          <h1 className="max-w-3xl text-[2.75rem] font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl">
-            We build digital products that solve real business problems.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            From our own software products to custom platforms built for businesses, Synfolix
-            designs, develops and scales digital solutions across industries.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Button asChild size="lg" className="rounded-sm px-6">
-              <a href="#products">Explore our products</a>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-sm px-6">
-              <a href="#contact">Build with Synfolix</a>
-            </Button>
-          </div>
+    <section className="relative overflow-hidden border-b border-border px-6 pb-24 pt-24 md:pt-32">
+      <div aria-hidden className="bg-dot-grid pointer-events-none absolute inset-0 opacity-[0.12]" />
+      <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
+        <Badge
+          variant="secondary"
+          className="reveal rounded-full border border-border px-3.5 py-1.5 text-xs font-medium text-muted-foreground"
+        >
+          Multi-industry software &amp; product studio
+        </Badge>
+        <h1
+          className="reveal mt-6 text-[2.75rem] font-semibold leading-[1.06] tracking-tight text-foreground md:text-7xl"
+          style={{ animationDelay: "80ms" }}
+        >
+          We build digital products that solve real business problems.
+        </h1>
+        <p
+          className="reveal mt-6 max-w-xl text-lg text-muted-foreground"
+          style={{ animationDelay: "160ms" }}
+        >
+          From our own software products to custom platforms built for businesses, Synfolix
+          designs, develops and scales digital solutions across industries.
+        </p>
+        <div className="reveal mt-10 flex flex-wrap items-center justify-center gap-4" style={{ animationDelay: "240ms" }}>
+          <Button asChild size="lg" className="gap-2 rounded-full pl-2 pr-6">
+            <a href="#products">
+              <img src="/logo.png" alt="" className="h-7 w-7 rounded-full bg-white/15 object-contain p-0.5" />
+              Explore our products
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="rounded-full px-6">
+            <a href="#contact">Build with Synfolix</a>
+          </Button>
         </div>
-        <dl className="flex flex-col justify-between gap-6 bg-[oklch(0.18_0.02_240)] p-7 text-sm">
-          <div>
-            <dt className="text-white/50">Model</dt>
-            <dd className="mt-1.5 border-t border-primary/40 pt-1.5 font-medium text-white">
-              Products &amp; custom builds
-            </dd>
-          </div>
-          <div>
-            <dt className="text-white/50">Reach</dt>
-            <dd className="mt-1.5 border-t border-primary/40 pt-1.5 font-medium text-white">
-              Multi-industry
-            </dd>
-          </div>
-          <div>
-            <dt className="text-white/50">Focus</dt>
-            <dd className="mt-1.5 border-t border-primary/40 pt-1.5 font-medium text-white">
-              Engineering-led
-            </dd>
-          </div>
-        </dl>
       </div>
     </section>
   );

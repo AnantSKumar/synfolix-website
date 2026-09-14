@@ -105,7 +105,7 @@ export default function Contact() {
             <p className="text-sm text-destructive md:col-span-2">{errorMessage}</p>
           )}
 
-          <Button type="submit" size="lg" disabled={status === "submitting"} className="rounded-sm md:col-span-2">
+          <Button type="submit" size="lg" disabled={status === "submitting"} className="rounded-full md:col-span-2">
             {status === "submitting" ? "Sending..." : "Send message"}
           </Button>
         </form>
