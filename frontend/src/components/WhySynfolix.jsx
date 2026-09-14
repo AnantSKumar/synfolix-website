@@ -1,27 +1,27 @@
-import { Lightbulb, Building2, Cpu, Workflow, TrendingUp } from "lucide-react";
-
 const reasons = [
-  { icon: Lightbulb, title: "Product Thinking", body: "We think beyond simply writing code." },
-  { icon: Building2, title: "Built Around Your Business", body: "Solutions designed around actual business requirements." },
-  { icon: Cpu, title: "Modern Technology", body: "AI, cloud, automation and scalable architecture." },
-  { icon: Workflow, title: "End-to-End Development", body: "From idea and design through development and launch." },
-  { icon: TrendingUp, title: "Built to Scale", body: "Products designed for future growth." },
+  { title: "Product thinking", body: "We think beyond simply writing code." },
+  { title: "Built around your business", body: "Solutions designed around actual business requirements." },
+  { title: "Modern technology", body: "AI, cloud, automation and scalable architecture." },
+  { title: "End-to-end development", body: "From idea and design through development and launch." },
+  { title: "Built to scale", body: "Products designed for future growth." },
 ];
 
 export default function WhySynfolix() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
-      <h2 className="mb-12 text-center text-3xl font-bold text-foreground">Why Synfolix?</h2>
-      <div className="grid gap-8 md:grid-cols-5">
-        {reasons.map(({ icon: Icon, title, body }) => (
-          <div key={title} className="text-center">
-            <div className="mx-auto mb-3 flex size-11 items-center justify-center rounded-xl bg-accent text-accent-foreground">
-              <Icon className="size-5" />
+    <section className="border-b border-border px-6 py-20">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="text-2xl font-semibold text-foreground">Why Synfolix</h2>
+        <div className="mt-10 grid divide-y divide-border border-t border-border md:grid-cols-5 md:divide-x md:divide-y-0 md:border-b">
+          {reasons.map((reason, i) => (
+            <div key={reason.title} className="py-6 md:px-6 md:py-8 md:first:pl-0">
+              <span className="font-heading text-3xl font-semibold text-primary/20">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 font-medium text-foreground">{reason.title}</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground">{reason.body}</p>
             </div>
-            <h3 className="mb-2 font-semibold text-foreground">{title}</h3>
-            <p className="text-sm text-muted-foreground">{body}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -9,17 +9,15 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="bg-zinc-950 py-20">
-      <div className="mx-auto max-w-6xl px-6">
-        <h2 className="mb-12 text-center text-3xl font-bold text-white">Our Process</h2>
-        <div className="grid gap-8 md:grid-cols-3 lg:grid-cols-6">
+    <section className="border-b border-primary/30 bg-[oklch(0.18_0.02_240)] px-6 py-20">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="text-2xl font-semibold text-white">Our process</h2>
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {steps.map((step) => (
-            <div key={step.n} className="text-center">
-              <div className="mx-auto mb-3 flex size-12 items-center justify-center rounded-full border-2 border-primary text-sm font-bold text-primary">
-                {step.n}
-              </div>
-              <h3 className="mb-1 font-semibold text-white">{step.title}</h3>
-              <p className="text-sm text-zinc-400">{step.body}</p>
+            <div key={step.n} className="border-t-2 border-primary pt-4">
+              <span className="text-xs font-medium text-primary">{step.n}</span>
+              <h3 className="mt-2 font-medium text-white">{step.title}</h3>
+              <p className="mt-1.5 text-sm text-white/50">{step.body}</p>
             </div>
           ))}
         </div>

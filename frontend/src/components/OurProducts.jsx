@@ -13,17 +13,19 @@ export default function OurProducts() {
   }, []);
 
   return (
-    <section id="products" className="bg-secondary/50 py-20">
-      <div className="mx-auto max-w-6xl px-6">
-        <h2 className="mb-4 text-center text-3xl font-bold text-foreground">Our Products</h2>
-        <p className="mx-auto mb-12 max-w-2xl text-center text-muted-foreground">
-          Software products built and owned by Synfolix, serving real industries today.
-        </p>
-        {loading && <p className="text-center text-muted-foreground">Loading products...</p>}
+    <section id="products" className="border-b border-border px-6 py-20">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="text-2xl font-semibold text-foreground">Our products</h2>
+          <p className="max-w-sm text-sm text-muted-foreground">
+            Software products built and owned by Synfolix, serving real industries today.
+          </p>
+        </div>
+        {loading && <p className="mt-10 text-sm text-muted-foreground">Loading products…</p>}
         {!loading && products.length === 0 && (
-          <p className="text-center text-muted-foreground">More products coming soon.</p>
+          <p className="mt-10 text-sm text-muted-foreground">More products coming soon.</p>
         )}
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="mt-10 grid gap-px overflow-hidden bg-border md:grid-cols-3">
           {products.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}

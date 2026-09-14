@@ -44,9 +44,10 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="mx-auto max-w-3xl px-6 py-20">
-      <h2 className="mb-4 text-center text-3xl font-bold text-foreground">Build With Synfolix</h2>
-      <p className="mb-10 text-center text-muted-foreground">
+    <section id="contact" className="px-6 py-20">
+      <div className="mx-auto max-w-2xl">
+      <h2 className="text-2xl font-semibold text-foreground">Build with Synfolix</h2>
+      <p className="mt-3 mb-10 text-muted-foreground">
         Tell us what you're building — we'll get back to you.
       </p>
 
@@ -104,16 +105,16 @@ export default function Contact() {
             <p className="text-sm text-destructive md:col-span-2">{errorMessage}</p>
           )}
 
-          <Button type="submit" size="lg" disabled={status === "submitting"} className="rounded-full md:col-span-2">
-            {status === "submitting" ? "Sending..." : "Build With Synfolix"}
+          <Button type="submit" size="lg" disabled={status === "submitting"} className="rounded-sm md:col-span-2">
+            {status === "submitting" ? "Sending..." : "Send message"}
           </Button>
         </form>
       )}
 
-      <div className="mt-10 flex justify-center gap-4 text-center text-sm text-muted-foreground">
+      <div className="mt-10 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted-foreground">
         <span>hello@synfolix.com</span>
-        <span>·</span>
         <span>+91 00000 00000</span>
+      </div>
       </div>
     </section>
   );
