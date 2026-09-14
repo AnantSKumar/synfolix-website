@@ -91,21 +91,38 @@
 }
 
 @layer components {
-  .bg-dot-grid {
-    background-image: radial-gradient(circle, var(--primary) 1px, transparent 1px);
-    background-size: 22px 22px;
-    -webkit-mask-image: radial-gradient(ellipse 60% 100% at 50% 0%, black 0%, transparent 75%);
-    mask-image: radial-gradient(ellipse 60% 100% at 50% 0%, black 0%, transparent 75%);
-  }
-
   .reveal {
     opacity: 0;
     animation: reveal-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
+  /* Hero atmosphere: a deep teal-to-ink sky with slow-drifting soft cloud
+     forms, built from layered blurred gradients — no canvas/WebGL. */
+  .hero-sky {
+    background:
+      radial-gradient(ellipse 90% 60% at 20% 0%, oklch(0.52 0.1 185 / 0.55), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 85% 15%, oklch(0.58 0.1 185 / 0.4), transparent 65%),
+      linear-gradient(180deg, oklch(0.2 0.03 235) 0%, oklch(0.15 0.025 240) 55%, oklch(0.12 0.02 245) 100%);
+  }
+
+  .hero-cloud {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(60px);
+    opacity: 0.5;
+    animation: drift 26s ease-in-out infinite alternate;
+  }
+
+  .hero-fade-bottom {
+    background: linear-gradient(180deg, transparent 0%, var(--background) 100%);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
+      animation: none;
+    }
+    .hero-cloud {
       animation: none;
     }
   }
@@ -119,5 +136,14 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: translate(-4%, -2%) scale(1);
+  }
+  to {
+    transform: translate(4%, 3%) scale(1.08);
   }
 }
