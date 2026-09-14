@@ -13,10 +13,9 @@ const links = [
 export default function NavBar() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <a href="/" className="flex items-center gap-2.5">
-          <img src="/logo.png" alt="Synfolix" className="h-9 w-auto" />
-          <span className="text-lg font-semibold tracking-tight text-foreground">Synfolix</span>
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
+        <a href="/" className="flex items-center">
+          <img src="/logo.png" alt="Synfolix" className="h-14 w-auto" />
         </a>
         <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
           {links.map((link) => (
